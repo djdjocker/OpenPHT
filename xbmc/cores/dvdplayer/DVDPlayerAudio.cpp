@@ -31,6 +31,7 @@
 #include "cores/AudioEngine/AEFactory.h"
 #include "cores/AudioEngine/Utils/AEUtil.h"
 #include "cores/DataCacheCore.h"
+#include "SystemGlobals.cpp"
 
 #include <sstream>
 #include <iomanip>

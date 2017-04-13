@@ -665,6 +665,13 @@ bool CPVRManager::GetCurrentChannel(CPVRChannelPtr &channel) const
   return m_addons && m_addons->GetPlayingChannel(channel);
 }
 
+CPVRChannelPtr CPVRManager::GetCurrentChannel() const
+{
+    CPVRChannelPtr channel = CPVRChannelPtr();
+    m_addons && m_addons->GetPlayingChannel(channel);
+    return channel;
+}
+
 int CPVRManager::GetCurrentEpg(CFileItemList &results) const
 {
   int iReturn = -1;

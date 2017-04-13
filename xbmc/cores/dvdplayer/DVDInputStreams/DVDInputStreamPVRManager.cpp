@@ -237,7 +237,7 @@ bool CDVDInputStreamPVRManager::NextChannel(bool preview/* = false*/)
   if (!preview && !SupportsChannelSwitch())
   {
     CPVRChannelPtr channel(g_PVRManager.GetCurrentChannel());
-    CFileItemPtr item(g_PVRChannelGroups->Get(channel->IsRadio())->GetSelectedGroup()->GetByChannelUp(channel));
+    CFileItemPtr item(g_PVRChannelGroups->Get(channel->IsRadio())->GetSelectedGroup()->GetByChannelUp((CFileItem) channel.get()));
     if (item)
       return CloseAndOpen(item->GetPath().c_str());
   }
@@ -252,7 +252,7 @@ bool CDVDInputStreamPVRManager::PrevChannel(bool preview/* = false*/)
   if (!preview && !SupportsChannelSwitch())
   {
     CPVRChannelPtr channel(g_PVRManager.GetCurrentChannel());
-    CFileItemPtr item(g_PVRChannelGroups->Get(channel->IsRadio())->GetSelectedGroup()->GetByChannelDown(channel));
+    CFileItemPtr item(g_PVRChannelGroups->Get(channel->IsRadio())->GetSelectedGroup()->GetByChannelDown((CFileItem) channel.get()));
     if (item)
       return CloseAndOpen(item->GetPath().c_str());
   }
@@ -284,7 +284,7 @@ bool CDVDInputStreamPVRManager::SelectChannel(const CPVRChannelPtr &channel)
   PVR_CLIENT client;
   if (!SupportsChannelSwitch())
   {
-    CFileItem item(channel);
+    CFileItem item(channel.get());
     return CloseAndOpen(item.GetPath().c_str());
   }
   else if (m_pLiveTV)

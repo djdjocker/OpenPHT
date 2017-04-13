@@ -1,6 +1,6 @@
 #pragma once
 /*
- *      Copyright (C) 2005-2012 Team XBMC
+ *      Copyright (C) 2011-2012 Team XBMC
  *      http://www.xbmc.org
  *
  *  This Program is free software; you can redistribute it and/or modify
@@ -19,29 +19,11 @@
  *
  */
 
-#include "utils/StdString.h"
-#include "utils/JobManager.h"
-#include "ThumbLoader.h"
+int aml_set_sysfs_str(const char *path, const char *val);
+int aml_get_sysfs_str(const char *path, char *valstr, const int size);
+int aml_set_sysfs_int(const char *path, const int val);
+int aml_get_sysfs_int(const char *path);
 
-class CPictureThumbLoader : public CThumbLoader, public CJobQueue
-{
-public:
-  CPictureThumbLoader();
-  virtual ~CPictureThumbLoader();
-  virtual bool LoadItem(CFileItem* pItem);
-  static void ProcessFoldersAndArchives(CFileItem *pItem);
-  
-  /*!
-   \brief Callback from CThumbExtractor on completion of a generated image
-
-   Performs the callbacks and updates the GUI.
-
-   \sa CImageLoader, IJobCallback
-   */
-  virtual void OnJobComplete(unsigned int jobID, bool success, CJob *job);
-protected:
-  virtual void OnLoaderFinish();
-  
-private:
-  bool m_regenerateThumbs;
-};
+bool aml_present();
+void aml_cpufreq_limit(bool limit);
+void aml_set_audio_passthrough(bool passthrough);

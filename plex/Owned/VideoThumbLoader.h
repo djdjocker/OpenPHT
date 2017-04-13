@@ -46,6 +46,12 @@ public:
   
   void SetStreamDetailsObserver(IStreamDetailsObserver *pObs) { }
   
+  /*! \brief helper function to retrieve a thumb URL for embedded video thumbs
+   \param item a video CFileItem.
+   \return a URL for the embedded thumb.
+   */
+  static CStdString GetEmbeddedThumbURL(const CFileItem &item);
+
 private:
   virtual void OnLoaderStart();
   virtual void OnLoaderFinish();

@@ -604,7 +604,7 @@ bool CGUIWindowMusicNav::OnContextButton(int itemNumber, CONTEXT_BUTTON button)
         if (pWindow)
         {
           ADDON::ScraperPtr info;
-          pWindow->OnInfo(item,info);
+          pWindow->OnInfo(item.get(),info);
           Refresh();
         }
       }

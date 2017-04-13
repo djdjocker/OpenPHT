@@ -18,7 +18,7 @@
  *
  */
 
-#ifndef __PLEX__
+//#ifndef __PLEX__
 #ifndef _MYSQLDATASET_H
 #define _MYSQLDATASET_H
 
@@ -174,4 +174,4 @@ or insert() operations default = false) */
 };
 } //namespace
 #endif
-#endif
+//#endif

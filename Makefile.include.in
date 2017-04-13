@@ -44,6 +44,34 @@ ifeq (@USE_OMXPLAYER@,1)
 INCLUDES+=-I@abs_top_srcdir@/xbmc/cores/AudioEngine
 INCLUDES+=-I@abs_top_srcdir@/xbmc/cores/AudioEngine/Utils
 endif
+
+#__PLEX__
+INCLUDES+=-I@abs_top_srcdir@/plex/Third-Party/gtest/include
+INCLUDES+=-I@abs_top_srcdir@/xbmc/cores
+INCLUDES+=-I@abs_top_srcdir@/xbmc/guilib
+INCLUDES+=-I@abs_top_srcdir@/xbmc/network
+INCLUDES+=-I@abs_top_srcdir@/xbmc/music
+INCLUDES+=-I@abs_top_srcdir@/xbmc/filesystem
+INCLUDES+=-I@abs_top_srcdir@/xbmc/threads
+INCLUDES+=-I@abs_top_srcdir@/xbmc/video
+INCLUDES+=-I@abs_top_srcdir@/xbmc/music/tags
+INCLUDES+=-I@abs_top_srcdir@/xbmc/dialogs
+INCLUDES+=-I@abs_top_srcdir@/xbmc/pictures
+INCLUDES+=-I@abs_top_srcdir@/xbmc/playlists
+INCLUDES+=-I@abs_top_srcdir@/xbmc/utils
+INCLUDES+=-I@abs_top_srcdir@/plex/FileSystem
+INCLUDES+=-I@abs_top_srcdir@/plex/Network
+INCLUDES+=-I@abs_top_srcdir@/plex/Remote
+INCLUDES+=-I@abs_top_srcdir@/plex/Filters
+INCLUDES+=-I@abs_top_srcdir@/plex/Third-Party/rapidxml
+INCLUDES+=-I@abs_top_srcdir@/plex/Playlists
+INCLUDES+=-I@abs_top_srcdir@/plex/Utility
+INCLUDES+=-I@abs_top_srcdir@/plex/Client
+INCLUDES+=-I@abs_top_srcdir@/plex/Owned
+INCLUDES+=-I@abs_top_srcdir@/plex
+INCLUDES+=-I@abs_top_srcdir@/lig/gtest/include/
+#END__PLEX__
+
 DEFINES+= \
 	@ARCH_DEFINES@ \
 	-D_FILE_DEFINED \
