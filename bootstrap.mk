@@ -3,6 +3,7 @@ BOOTSTRAP_SUBDIRS += xbmc/screensavers/rsxs-0.9/configure.ac
 BOOTSTRAP_SUBDIRS += xbmc/visualizations/Goom/goom2k4-0/configure.in
 BOOTSTRAP_SUBDIRS += lib/cpluff/configure.ac
 BOOTSTRAP_SUBDIRS += lib/gtest/configure.ac
+BOOTSTRAP_SUBDIRS += plex/git_revision.h.in
 
 ifneq ($(wildcard lib/libdvd/libdvdcss/configure.ac),)
 BOOTSTRAP_SUBDIRS += lib/libdvd/libdvdcss/configure.ac

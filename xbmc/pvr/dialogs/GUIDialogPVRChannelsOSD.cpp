@@ -207,7 +207,7 @@ void CGUIDialogPVRChannelsOSD::GotoChannel(int item)
   {
     CPVRChannel *channel = pItem->GetPVRChannelInfoTag();
     if (!g_PVRManager.CheckParentalLock(*channel) ||
-        !g_application.m_pPlayer->SwitchChannel(*channel))
+        !g_application.m_pPlayer->SwitchChannel(CPVRChannelPtr(channel)))
     {
       CGUIDialogKaiToast::QueueNotification(CGUIDialogKaiToast::Error,
               g_localizeStrings.Get(19166), // PVR information

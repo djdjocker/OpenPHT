@@ -30,7 +30,7 @@
 #include "Application.h"
 
 using namespace ANNOUNCEMENT;
-
+#ifndef __PLEX__
 CGUIWindowHome::CGUIWindowHome(void) : CGUIWindow(WINDOW_HOME, "Home.xml"), 
                                        m_recentlyAddedRunning(false),
                                        m_cumulativeUpdateFlag(0),
@@ -46,7 +46,7 @@ CGUIWindowHome::~CGUIWindowHome(void)
 {
   CAnnouncementManager::RemoveAnnouncer(this);
 }
-
+#endif
 bool CGUIWindowHome::OnAction(const CAction &action)
 {
   static unsigned int min_hold_time = 1000;

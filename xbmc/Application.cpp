@@ -631,7 +631,9 @@ bool CApplication::Create()
   CStdString executable = CUtil::ResolveExecutablePath();
   CLog::Log(LOGNOTICE, "The executable running is: %s", executable.c_str());
   CLog::Log(LOGNOTICE, "Local hostname: %s", m_network->GetHostName().c_str());
-  CLog::Log(LOGNOTICE, "Log File is located: %s%s.log", g_settings.m_logFolder.c_str(), PLEX_TARGET_NAME);
+#ifdef __PLEX__
+  CLog::Log(LOGNOTICE, "Log File is located: %s%s.log", g_settings.m_logFolder.c_str(), "OpenPHT");
+#endif
   CLog::Log(LOGNOTICE, "-----------------------------------------------------------------------");
 
   CStdString strExecutablePath;
@@ -953,11 +955,13 @@ bool CApplication::InitWindow()
   }
 #else
   bool bFullScreen = res != RES_WINDOW;
-  if (!g_Windowing.CreateNewWindow(PLEX_TARGET_NAME, bFullScreen, g_settings.m_ResInfo[res], OnEvent))
+#ifdef __PLEX__
+  if (!g_Windowing.CreateNewWindow("OpenPHT", bFullScreen, g_settings.m_ResInfo[res], OnEvent))
   {
     CLog::Log(LOGFATAL, "CApplication::Create: Unable to create window");
     return false;
   }
+#endif
 #endif
 
   if (!g_Windowing.InitRenderSystem())

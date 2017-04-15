@@ -52,11 +52,14 @@ class CGUIWindowHome : public CGUIWindow, public IPlexGlobalTimeout, public IJob
 public:
   CGUIWindowHome(void);
   virtual ~CGUIWindowHome(void) {}
+  virtual void OnInitWindow();
   virtual bool OnMessage(CGUIMessage& message);
+  virtual void Announce(ANNOUNCEMENT::AnnouncementFlag flag, const char *sender, const char *message, const CVariant &data);
   void Render() { CGUIWindow::Render(); }
   void Process(unsigned int currentTime, CDirtyRegionList &dirtyregions) { CGUIWindow::Process(currentTime, dirtyregions); }
 
 private:
+  void AddRecentlyAddedJobs(int flag);
   virtual bool OnAction(const CAction &action);
   virtual bool CheckTimer(const CStdString& strExisting, const CStdString& strNew, int title, int line1, int line2);
   virtual CFileItemPtr GetCurrentListItem(int offset = 0);
@@ -107,6 +110,7 @@ private:
   CGUIStaticItemPtr ItemToSection(CFileItemPtr item);
     
   bool                       m_globalArt;
+  int m_updateRA; // flag for which recently added items needs to be queried
   
   CGUIListItemPtr            m_videoChannelItem;
   CGUIListItemPtr            m_musicChannelItem;
@@ -125,5 +129,8 @@ private:
 
   // focus saving members
   CGUIPlexWindowFocusSaver  m_focusSaver;
+  bool m_recentlyAddedRunning;;
+  int m_cumulativeUpdateFlag;
+  bool m_dbUpdating;
 };
 

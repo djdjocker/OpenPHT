@@ -21,6 +21,7 @@
 #include "GUIWindowStartup.h"
 #include "guilib/Key.h"
 
+#ifndef __PLEX__
 CGUIWindowStartup::CGUIWindowStartup(void)
     : CGUIWindow(WINDOW_STARTUP_ANIM, "Startup.xml")
 {
@@ -36,3 +37,4 @@ bool CGUIWindowStartup::OnAction(const CAction &action)
     return true;
   return CGUIWindow::OnAction(action);
 }
+#endif
