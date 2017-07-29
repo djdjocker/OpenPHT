@@ -19,7 +19,7 @@
  */
 
 /* PLEX */
-#include "AdvancedSettings.h"
+#include "settings/AdvancedSettings.h"
 #include <stdexcept>
 #include "PlexApplication.h"
 /* END PLEX */

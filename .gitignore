@@ -1259,6 +1259,7 @@ plex/Dependencies/windows-i386-*
 plex/build
 plex/build_xc
 plex/Dependencies/built-depends/*
+plex/git_revision.h
 project/BuildDependencies/bin/dump_syms.exe
 .idea
 

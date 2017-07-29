@@ -43,7 +43,7 @@ public:
   virtual bool HasListItems() const { return true; };
 
 #ifndef __PLEX__
-  static std::string ChooseArtType(const CFileItem &item, std::map<std::string, std::string> &currentArt);
+  std::string ChooseArtType(const CFileItem &item, std::map<std::string, std::string> &currentArt);
 #else
   std::string ChooseArtType(const CFileItem &item, std::map<std::string, std::string> &currentArt);
 #endif
